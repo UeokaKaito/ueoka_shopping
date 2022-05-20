@@ -22,7 +22,7 @@ public class Items {
 	@Column(name = "stock")
 	private Integer stock;
 	
-	@Column(name = "imege")
+	@Column(name = "image")
 	private String image;
 	
 	@Column(name = "name")

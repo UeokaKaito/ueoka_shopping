@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.Items;
 import com.example.demo.entity.Users;
 import com.example.demo.repository.ItemsRepository;
 import com.example.demo.repository.UsersRepository;
@@ -39,8 +42,18 @@ public class AccountController {
 			mv.setViewName("index");
 			return mv;
 		}
-		mv.setViewName("items");
-		return mv;
+		List<Users> userlist = usersRepository.findByEmailAndPassword(email, password);
+		if (userlist.size() == 0) {
+			mv.addObject("message", "登録情報がありません");
+			mv.setViewName("index");
+			return mv;
+		} else {
+			//mv.addObject("items", itemsRepository.findAll());
+			List<Items> itemList = itemsRepository.findAll();
+			mv.addObject("items", itemList);
+			mv.setViewName("items");
+			return mv;
+		}
 	}
 
 	@RequestMapping("/signup")
@@ -56,12 +69,17 @@ public class AccountController {
 			@RequestParam("password") String password, @RequestParam("prefecture") String prefecture,
 			@RequestParam("address") String address, @RequestParam("tell") String tell,
 			@RequestParam("name") String name, ModelAndView mv) {
-
+		if (userName == null || userName.length() == 0 || email == null || email.length() == 0 || password == null
+				|| password.length() == 0 || address == null || address.length() == 0 || tell == null
+				|| tell.length() == 0 || name == null || name.length() == 0) {
+			mv.addObject("message", "未入力の項目があります");
+			mv.setViewName("signup");
+			return mv;
+		}
 		Users user = new Users(userName, prefecture + address, email, tell, name, password);
 		usersRepository.saveAndFlush(user);
-		mv.setViewName("items");
+		mv.setViewName("index");
 		return mv;
-
 	}
 
 	private String[] getPrefecture() {
@@ -70,6 +88,9 @@ public class AccountController {
 				"兵庫県", "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県",
 				"長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県" };
 		return result;
-
+	}
+	@RequestMapping("/logout")
+	public String logout() {
+		return login();
 	}
 }
