@@ -48,6 +48,9 @@ public class AccountController {
 			mv.setViewName("index");
 			return mv;
 		} else {
+			Users user = userlist.get(0);
+			session.setAttribute("userinfo", user);
+			
 			//mv.addObject("items", itemsRepository.findAll());
 			List<Items> itemList = itemsRepository.findAll();
 			mv.addObject("items", itemList);
@@ -93,4 +96,10 @@ public class AccountController {
 	public String logout() {
 		return login();
 	}
+	@RequestMapping("/loginA")
+		public String logonA() {
+		return login();
+	}
 }
+//オーダーページでsessionを呼び出す
+//htmlとリンクさせる

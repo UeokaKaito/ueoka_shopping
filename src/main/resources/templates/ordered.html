@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>購入ページ</title>
+</head>
+<body>
+<a href="/allItem">商品一覧はこちら</a>
+<a href="/addCart">カート一覧はこちら</a>
+
+<h1>購入</h1>
+<table border="1">
+<tr>
+<th>小計</th>
+</tr>
+<tr th:each="item : ${items}">
+<td th:text="${item.value.price * item.value.quantity}"></td>
+<td colspan="5" align="right" th:text="|総計：${total}|"></td>
+</tr>
+</table>
+	
+
+</body>
+</html>
