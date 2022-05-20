@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "items")
@@ -15,21 +15,24 @@ public class Items {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
+
 	@Column(name = "price")
 	private Integer price;
-	
+
 	@Column(name = "stock")
 	private Integer stock;
-	
+
 	@Column(name = "image")
 	private String image;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "delivery_days")
 	private Integer deliverydays;
+
+	@Transient
+	private Integer quantity;
 
 	public Integer getId() {
 		return id;
@@ -78,6 +81,13 @@ public class Items {
 	public void setDeliverydays(Integer deliverydays) {
 		this.deliverydays = deliverydays;
 	}
-	
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 
 }
