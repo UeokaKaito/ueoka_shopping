@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.Cart;
@@ -22,21 +24,24 @@ public class ItemsController {
 	@Autowired
 	ItemsRepository itemsRepository;
 
-	@RequestMapping(value="/items")
+	@RequestMapping(value = "/items")
 	public ModelAndView items(ModelAndView mv) {
-			mv.addObject("items", itemsRepository.findAll());
-	List<Items> itemList = itemsRepository.findAll();
-	mv.addObject("items", itemList);
-	mv.setViewName("items");
-	return mv;
+		mv.addObject("items", itemsRepository.findAll());
+		List<Items> itemList = itemsRepository.findAll();
+		mv.addObject("items", itemList);
+		mv.setViewName("items");
+		return mv;
+		
 
 	}
+
 	@RequestMapping("serch")
 	public ModelAndView serch(ModelAndView mv) {
-			mv.addObject("itemList", itemsRepository.findAll());
-			
+		mv.addObject("itemList", itemsRepository.findAll());
+
 		return mv;
 	}
+
 	@RequestMapping("/addCart")
 	public ModelAndView addCart(ModelAndView mv) {
 		Cart cart = getCart();
@@ -45,17 +50,25 @@ public class ItemsController {
 		mv.setViewName("itemsAdd");
 		return mv;
 	}
+	@RequestMapping(value="/search" ,method=RequestMethod.GET)
+	public ModelAndView search(
+			ModelAndView mv,
+			@RequestParam("searchWord") String searchWord) {
+		List<Items> itemList=itemsRepository.findAllByNameContaining(searchWord);
+		mv.addObject("items",itemList);
+		mv.setViewName("items");
+		return mv;
+	}
+
+
 	public Cart getCart() {
 
 		Cart cart = (Cart) session.getAttribute("cart");
-		if(cart == null) {
+		if (cart == null) {
 			cart = new Cart();
 			session.setAttribute("cart", cart);
 		}
 		return cart;
 	}
-	
-	
-	
 
 }

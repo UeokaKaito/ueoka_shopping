@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>マイページ</title>
+</head>
+<body>
+ユーザー名：<span th:text="${session.userinfo.userName}" ></span>
+<br>
+住所:<span th:text="${session.userinfo.address}"></span>
+<br>
+メールアドレス：<span th:text="${session.userinfo.email}"></span>
+<br>
+<a href="/allItem">ホーム</a>
+<br>
+<a href="/edit">情報の変更</a>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>支払情報</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>名前</th>
+			<td><input type="text" name="userName"
+				th:value="${userinfo.userName}" /></td>
+		</tr>
+		<tr>
+			<th>住所</th>
+			<td><input type="text" name="address"
+				th:value="${userinfo.address}" /></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td><input type="text" name="email" th:value="${userinfo.email}" /></td>
+		</tr>
+		<tr>
+			<th>クレジットカード番号</th>
+			<td><input type="text" pattern="^[0-9]+$" maxlength="16"
+				name="credit_no"></td>
+		</tr>
+		<tr>
+			<th>セキュリティコード</th>
+			<td><input type="password" pattern="^\d{3}$" maxlength="3" onkeyup=""
+				name="credit_security"></td>
+		</tr>
+	</table>
+	<form action="procedure">
+		<input type="submit" value="購入手続き">
+	</form>
+
+	
+
+
+</body>
+
+</html>

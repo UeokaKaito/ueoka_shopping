@@ -45,7 +45,18 @@ public class Users {
 		this.password = password;
 		
 	}
+	
 
+	public Users(Integer id, String userName, String address, String email, String tell, String name, String password) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.address = address;
+		this.email = email;
+		this.tell = tell;
+		this.name = name;
+		this.password = password;
+	}
 	public Integer getId() {
 		return id;
 	}

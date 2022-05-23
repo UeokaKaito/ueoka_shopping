@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>情報の変更</title>
+</head>
+<body>
+<form action="/editinfo" method="post">
+		<table>
+			<tr>
+				<th>ユーザー名</th>
+				<td><input type="text" name="userName" th:value="${session.userinfo.userName}"></td>
+			</tr>
+			<tr>
+				<th>名前</th>
+				<td><input type="text" name="name" th:value="${session.userinfo.name}"></td>
+			</tr>
+			<tr>
+			<th>住所</th>
+			<td>
+			<select name="prefecture">
+				<option th:each="str:${prefecture}" th:value="${str}" th:text="${str}"></option>
+				
+			</select>
+			<input type="text" name="address"></td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td><input type="text" name="email" th:value="${session.userinfo.email}"></td>
+			</tr>
+			<tr>
+			<th>電話番号</th>
+			<td><input type="text" name="tell"th:value="${session.userinfo.tell}"></td>
+			</tr>
+			<tr>
+				<th>パスワード</th>
+				<td><input type="text" name="password" th:value="${session.userinfo.password}"></td>
+			</tr>
+		</table>
+		<input type="submit" value="変更">
+		</form>
+		<br> <a href="myPage">マイページ</a>
+		
+</body>
+</html>

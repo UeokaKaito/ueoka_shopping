@@ -33,7 +33,9 @@ public class AccountController {
 		session.invalidate();
 		return "index";
 	}
+	
 
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView login(@RequestParam("email") String email, @RequestParam("password") String password,
 			ModelAndView mv) {
@@ -50,8 +52,8 @@ public class AccountController {
 		} else {
 			Users user = userlist.get(0);
 			session.setAttribute("userinfo", user);
-			
-			//mv.addObject("items", itemsRepository.findAll());
+
+			// mv.addObject("items", itemsRepository.findAll());
 			List<Items> itemList = itemsRepository.findAll();
 			mv.addObject("items", itemList);
 			mv.setViewName("items");
@@ -84,6 +86,42 @@ public class AccountController {
 		mv.setViewName("index");
 		return mv;
 	}
+//	@RequestMapping("/editinfo")
+//	public ModelAndView edit(ModelAndView mv) {
+//	mv.addObject("prefecture", getPrefecture());
+//	mv.setViewName("edit");
+//	return mv;
+//	}
+	@RequestMapping("/edit")
+	public ModelAndView edit(ModelAndView mv) {
+		mv.addObject("prefecture", getPrefecture());
+		
+		mv.setViewName("edit");
+		return mv;
+	}
+	
+	
+
+	@RequestMapping(value = "/editinfo", method = RequestMethod.POST)
+	public ModelAndView editinfo(@RequestParam("userName") String userName, @RequestParam("email") String email,
+			@RequestParam("password") String password, @RequestParam("prefecture") String prefecture,
+			@RequestParam("address") String address, @RequestParam("tell") String tell,
+			@RequestParam("name") String name, ModelAndView mv) {
+		mv.addObject("prefecture", getPrefecture());
+		
+		// ユーザー情報を取得
+		Users userInfo = (Users) session.getAttribute("userinfo");
+		Integer id = userInfo.getId();
+		
+		// データを更新
+		Users users = new Users(id, userName, prefecture + address, email, tell, name, password);
+		usersRepository.saveAndFlush(users);
+		
+		session.setAttribute("userinfo", userInfo);
+//		mv.addObject("userInfo", session.getAttribute("userInfo"));
+		mv.setViewName("mypage");
+		return mv;
+	}
 
 	private String[] getPrefecture() {
 		String[] result = { "北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都",
@@ -92,14 +130,17 @@ public class AccountController {
 				"長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県" };
 		return result;
 	}
+
 	@RequestMapping("/logout")
 	public String logout() {
 		return login();
 	}
+
 	@RequestMapping("/loginA")
-		public String logonA() {
+	public String logonA() {
 		return login();
 	}
+
 }
 //オーダーページでsessionを呼び出す
 //htmlとリンクさせる

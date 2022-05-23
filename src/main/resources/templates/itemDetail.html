@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>詳細</title>
+</head>
+<body>
+	<table>
+		<tr>
+			
+			<th>商品名</th>
+			<th>値段</th>
+			<th>見本</th>
+		</tr>
+		<tr th:each="items:${items}">
+		<td th:text="${items.name}"></td>
+		<td th:text="${items.price}"></td>
+		<td><img th:src="|/${items.image}|" width="100" height="100" /></td>
+		</tr>
+	</table>
+</body>
+</html>

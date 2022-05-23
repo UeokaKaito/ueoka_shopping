@@ -62,6 +62,9 @@ public class CartController {
 	@RequestMapping("/order")
 	public ModelAndView ordered(ModelAndView mv) {
 		mv.setViewName("ordered");
+		Cart cart = getCart();
+		mv.addObject("items", cart.getItems());
+		mv.addObject("total", cart.getTotal());
 		return mv;
 	}
 

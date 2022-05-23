@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>確認</title>
+</head>
+<body style="text-align: center;">
+<h1 style=" color:red">☑ご購入ありがとうございます！！</h1>
+住所:<span th:text="${session.userinfo.address}"></span>
+<br>
+メールアドレス：<span th:text="${session.userinfo.email}"></span>
+<a href="/logout">ログアウト</a>
+
+
+
+</body>
+</html>
