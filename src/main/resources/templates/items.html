@@ -25,7 +25,7 @@
 		</tr>
 		<tr th:each="items:${items}">
 			<td th:text="${items.id}"></td>
-			<td><a th:href="${items.name}" th:text="${items.name}"></a></td>
+			<td><a th:href="'/items/name'" th:text="${items.name}"></a></td>
 			<td th:text="${items.price}"></td>
 			<!--<td><img th:src="|/${items.image}|" width="100" height="100" /></td> -->
 			<td><a th:href="|/cart/add/${items.id}|">カートに追加する</a></td>
