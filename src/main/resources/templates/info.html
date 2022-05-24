@@ -5,34 +5,37 @@
 <title>支払情報</title>
 </head>
 <body>
-	<table>
-		<tr>
-			<th>名前</th>
-			<td><input type="text" name="userName"
-				th:value="${userinfo.userName}" /></td>
-		</tr>
-		<tr>
-			<th>住所</th>
-			<td><input type="text" name="address"
-				th:value="${userinfo.address}" /></td>
-		</tr>
-		<tr>
-			<th>メールアドレス</th>
-			<td><input type="text" name="email" th:value="${userinfo.email}" /></td>
-		</tr>
-		<tr>
-			<th>クレジットカード番号</th>
-			<td><input type="text" pattern="^[0-9]+$" maxlength="16"
-				name="credit_no"></td>
-		</tr>
-		<tr>
-			<th>セキュリティコード</th>
-			<td><input type="password" pattern="^\d{3}$" maxlength="3" onkeyup=""
-				name="credit_security"></td>
-		</tr>
-	</table>
-	<form action="procedure">
+<span th:text="${message}" style="color:red"></span>
+	<form action="/procedure" method="post">
+		<table>
+			<tr>
+				<th>名前</th>
+				<td><input type="text" name="userName"
+					th:value="${session.userinfo.userName}" /></td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td><input type="text" name="address"
+					th:value="${session.userinfo.address}" /></td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td><input type="text" name="email" th:value="${session.userinfo.email}" /></td>
+			</tr>
+			<tr>
+				<th>クレジットカード番号</th>
+				<td><input type="text" maxlength="16"
+					name="creditNo"></td>
+			</tr>
+			<tr>
+				<th>セキュリティコード</th>
+				<td><input type="password" pattern="^\d{3}$" maxlength="3" onkeyup=""
+					name="creditSecurity"></td>
+			</tr>
+		</table>
+	
 		<input type="submit" value="購入手続き">
+		<a href="/allItem">商品一覧</a>
 	</form>
 
 	

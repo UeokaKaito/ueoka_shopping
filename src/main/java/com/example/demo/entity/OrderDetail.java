@@ -23,6 +23,21 @@ public class OrderDetail {
 	
 	@Column(name = "quantity")
 	private Integer quantity;
+	
+	
+
+	public OrderDetail() {
+		super();
+	}
+	
+
+	public OrderDetail(Integer orderedId, Integer itemId, Integer quantity) {
+		super();
+		this.orderedId = orderedId;
+		this.itemId = itemId;
+		this.quantity = quantity;
+	}
+
 
 	public Integer getId() {
 		return id;

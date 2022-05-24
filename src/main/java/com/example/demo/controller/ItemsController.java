@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,6 +58,22 @@ public class ItemsController {
 		List<Items> itemList=itemsRepository.findAllByNameContaining(searchWord);
 		mv.addObject("items",itemList);
 		mv.setViewName("items");
+		return mv;
+	}
+	
+	//商品一覧の表示
+	@RequestMapping("/items/{id}") //items
+	public ModelAndView detail(
+			@PathVariable("id") Integer id,
+			ModelAndView mv) {      //画像が出力されない
+//		Items item = itemsRepository.findById(id).get();
+//		List<Items> itemList = itemsRepository.findByName("name");
+		
+		mv.addObject("item", itemsRepository.findById(id).get());
+//		List<Items> itemDetail = itemsRepository.findByName("name");
+//		mv.addObject("items", itemDetail);
+//		mv.addObject("items", itemsRepository.findByName("name"));
+	    mv.setViewName("itemDetail");
 		return mv;
 	}
 

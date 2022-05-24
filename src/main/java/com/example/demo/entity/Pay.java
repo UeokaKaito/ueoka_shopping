@@ -23,6 +23,16 @@ public class Pay {
 	
 	@Column(name = "credit_security")
 	private Integer creditSecurity;
+	
+	public Pay() {
+		super();
+	}
+
+	public Pay(String creditNo, Integer creditSecurity) {
+		super();
+		this.creditNo = creditNo;
+		this.creditSecurity = creditSecurity;
+	}
 
 	public Integer getId() {
 		return id;

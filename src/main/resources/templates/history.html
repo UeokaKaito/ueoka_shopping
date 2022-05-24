@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>注文履歴</title>
+</head>
+<body>
+<table border = "1">
+<tr>
+<th>購入日</th>
+<th>合計金額</th>
+</tr>
+
+<tr th:each="order : ${ordered}">
+<!--  <td th:text="${order.orderedDate}">-->
+<td th:text="${#dates.format(order.orderedDate, 'yyyy-MM-dd')}"></td>
+<td th:text="${order.totalPrice}"> 
+</tr> 
+</table>
+<a href="/allItem">商品一覧へ戻る</a> 
+</body>
+</html>

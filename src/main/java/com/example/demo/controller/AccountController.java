@@ -122,6 +122,13 @@ public class AccountController {
 		mv.setViewName("mypage");
 		return mv;
 	}
+	
+	//注文履歴
+//	@RequestMapping("history")
+//	public ModelAndView history(ModelAndView mv) {
+//		mv.setViewName("history");
+//		return mv;
+//	}
 
 	private String[] getPrefecture() {
 		String[] result = { "北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都",

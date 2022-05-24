@@ -25,6 +25,23 @@ public class Ordered {
 	
 	@Column(name = "total_price")
 	private Integer totalPrice;
+	
+
+
+	public Ordered() {
+		super();
+	}
+
+
+
+	public Ordered(Integer id, Date orderedDate, Integer totalPrice) {
+		super();
+		this.id = id;
+		this.orderedDate = orderedDate;
+		this.totalPrice = totalPrice;
+	}
+	
+	
 
 	public Integer getId() {
 		return id;
