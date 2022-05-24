@@ -114,13 +114,15 @@ public class AccountController {
 		Integer id = userInfo.getId();
 		
 		// データを更新
-		Users users = new Users(id, userName, prefecture + address, email, tell, name, password);
+		Users users = new Users(id,userName, prefecture + address, email, tell, name, password);
 		usersRepository.saveAndFlush(users);
 		
-		session.setAttribute("userinfo", userInfo);
-//		mv.addObject("userInfo", session.getAttribute("userInfo"));
+		session.setAttribute("userinfo", users);
+		mv.addObject("userinfo", usersRepository.findAll());
+		//mv.addObject("userInfo", session.getAttribute("userInfo"));
 		mv.setViewName("mypage");
 		return mv;
+		
 	}
 	
 	//注文履歴
@@ -143,6 +145,7 @@ public class AccountController {
 		return login();
 	}
 
+	
 	@RequestMapping("/loginA")
 	public String logonA() {
 		return login();

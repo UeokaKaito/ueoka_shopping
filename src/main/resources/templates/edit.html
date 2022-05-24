@@ -5,7 +5,7 @@
 <title>情報の変更</title>
 </head>
 <body>
-<form action="/editinfo" method="post">
+<form action="/editinfo" method="post"> 
 		<table>
 			<tr>
 				<th>ユーザー名</th>
@@ -36,7 +36,9 @@
 				<th>パスワード</th>
 				<td><input type="text" name="password" th:value="${session.userinfo.password}"></td>
 			</tr>
+			
 		</table>
+		
 		<input type="submit" value="変更">
 		</form>
 		<br> <a href="myPage">マイページ</a>
