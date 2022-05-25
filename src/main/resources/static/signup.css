@@ -13,8 +13,11 @@ body {
 h1 {
 	color: gray ;
 	font-size: 500%;
+	text-align: center;
 }
 input[type="submit"] {
+	
+	
 box-shadow:inset 0px 0px 23px 0px #276873;
 	background-color:#599bb3;
 	border-radius:28px;
@@ -28,4 +31,7 @@ box-shadow:inset 0px 0px 23px 0px #276873;
 	padding:7px 13px;
 	text-decoration:none;
 	text-shadow:3px 0px 0px #3d768a;
+}
+div {
+	margin-left: 20;
 }

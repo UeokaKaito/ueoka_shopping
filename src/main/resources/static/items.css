@@ -28,7 +28,7 @@ input[type="submit"] {
 	text-shadow:3px 0px 0px #3d768a;
 }
 a {
-  color: #ff0080;
+  color: #ff8000;
   text-decoration: none;
   word-spacing: 10em;
 }
@@ -53,4 +53,16 @@ text-align: center;
 padding: 10px 0;
 background-color: #d9e3ee;
 border:solid 1px #afc5dc;
+color: #400000;
+}
+
+footer{
+/*フッターの背景色を指定*/
+background-color: black;
+/*中央揃えにする*/
+text-align: center;
+/*文字色を白にする*/
+color: #FFFFFF;
+/*上下に余白をつけてフッターの太さを調整する*/
+padding: 15px 0;
 }

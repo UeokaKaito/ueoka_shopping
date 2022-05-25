@@ -3,19 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>マイページ</title>
+<link rel="stylesheet" href="/myPage.css">
 </head>
 <body>
-<a href="/history">注文履歴</a>
 <br>
-ユーザー名：<span th:text="${session.userinfo.userName}" ></span>
 <br>
-住所:<span th:text="${session.userinfo.address}"></span>
-<br>
-メールアドレス：<span th:text="${session.userinfo.email}"></span>
-<br>
-<a href="/allItem">ホーム</a>
-<br>
-<a href="/edit">情報の変更</a>
+
+	<a href="/history">注文履歴</a>
+	<br> ユーザー名：
+	<span th:text="${session.userinfo.userName}"></span>
+	<br> 住所:
+	<span th:text="${session.userinfo.address}"></span>
+	<br> メールアドレス：
+	<span th:text="${session.userinfo.email}"></span>
+	<br>
+	<a href="/allItem">ホーム</a>
+	<br>
+	<a href="/edit">情報の変更</a>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<form action="/delete" method="post">
+		<button type="submit" style="background-color: #ff8888">退会する</button>
+	</form>
+	
+	<!-- <script type="text/javascript">
+	</script> -->
 
 </body>
 </html>

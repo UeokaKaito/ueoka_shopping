@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.entity.Items;
 import com.example.demo.entity.Users;
 import com.example.demo.repository.ItemsRepository;
+import com.example.demo.repository.OrderedRepository;
 import com.example.demo.repository.UsersRepository;
 
 @Controller
@@ -26,6 +27,9 @@ public class AccountController {
 
 	@Autowired
 	ItemsRepository itemsRepository;
+	
+	@Autowired
+	OrderedRepository orderedRepository;
 
 	@RequestMapping("/")
 	public String login() {
@@ -150,6 +154,16 @@ public class AccountController {
 	@RequestMapping("/loginA")
 	public String logonA() {
 		return login();
+	}
+	@RequestMapping(value="/delete",  method=RequestMethod.POST)
+	public ModelAndView userDelete(ModelAndView mv) {
+		//削除する
+		Users userInfo = (Users) session.getAttribute("userinfo");
+		//userInfo.getId();
+		usersRepository.deleteById(userInfo.getId());
+		mv.addObject("users", usersRepository.findAll());
+		mv.setViewName("index");
+		return mv;
 	}
 
 }

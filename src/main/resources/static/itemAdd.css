@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+body {
+	text-align: center;
+	background-image: url(bg_moon_sky_mikaduki.jpg);
+	background-color: #f0fffa;
+}
+h1{ 
+	color: #ffff00;
+	}
+table {
+	border-collapse: separate;
+  border-spacing: 5px 0;
+  margin: 0 auto;
+
+}
+td,th{
+  padding: 10px;
+}
+th{
+  color: #fff;
+  background: #005ab3;
+  border-radius: 5px;
+}
+td{
+  color: #ffffff;
+}
+a {
+	 color: #ff0000;
+}
+
+

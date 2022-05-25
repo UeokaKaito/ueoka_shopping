@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>購入ページ</title>
+<link rel="stylesheet" href="/ordered.css">
 </head>
 <body>
 <a href="/allItem">商品一覧はこちら</a>
 <a href="/addCart">カート一覧はこちら</a>
 
-<h1>購入</h1>
+<h1>購入画面</h1>
 <table border="1">
 <tr>
 <th>商品</th>
@@ -17,12 +18,28 @@
 <tr th:each="item : ${items}">
 <td th:text="${item.value.name}"></td>
 <td th:text="${item.value.price * item.value.quantity}"></td>
+
 <td colspan="5" align="right" th:text="|総計：${total}円|"></td>
 </tr>
 </table>
 <form action="buy">
 <input type="submit" value="購入">
 </form>	
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+	<footer>
+	<p>&copy;UeokaShopping2022</p>
+</footer>
 
 </body>
 </html>

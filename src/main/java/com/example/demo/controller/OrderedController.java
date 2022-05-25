@@ -46,7 +46,9 @@ public class OrderedController {
 
 	@RequestMapping("/buy")
 	public ModelAndView buy(ModelAndView mv) {
-
+		Cart cart = getCart();
+		mv.addObject("items", cart.getItems());
+		mv.addObject("total", cart.getTotal());
 		mv.addObject("userinfo", session.getAttribute("userinfo"));
 		mv.setViewName("info");
 		return mv;
@@ -124,7 +126,9 @@ public class OrderedController {
 
 	@RequestMapping("/history")
 	public ModelAndView history(ModelAndView mv) {
-		List<Ordered> orderList = orderedRepository.findAll();
+		Users userinfo = (Users) session.getAttribute("userinfo");
+		Integer id = userinfo.getId();
+		List<Ordered> orderList = orderedRepository.findByUserId(id);
 		mv.addObject("ordered", orderList);
 		mv.setViewName("history");
 

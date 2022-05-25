@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="/itemDetail.css">
 </head>
 <body>
+<a href="/allItem">商品一覧へ戻る</a> 
+
 <br>
 <br>
 <br>
@@ -24,9 +26,16 @@
 		<tr>
 			<td th:text="${item.name}"></td>
 			<td th:text="${item.price} + 円"></td>
-			<td><img th:src="|/${item.image}|" width="100" height="100" /></td>
+			<td><img th:src="|/${item.image}|" width="300" height="300" /></td>
+			<td><a th:href="|/cart/add/${item.id}|">カートに追加
+			</a></td>
 		</tr>
+		
 	</table>
+	<hr>
+	<footer>
+	<p>&copy;UeokaShopping2022</p>
+</footer>
 
 </body>
 </html>

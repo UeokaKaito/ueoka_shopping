@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+body {
+	text-align: center;
+	background-image: url(bg_moon_sky_mikaduki.jpg);
+	background-color: #f0fffa;
+	font-size: 200%;
+	color:  #ffff00;
+}
+
+a{
+	 color: #ffffff;
+}
+form {
+	text-align: right;
+}
