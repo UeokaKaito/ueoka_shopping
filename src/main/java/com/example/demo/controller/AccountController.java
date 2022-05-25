@@ -40,7 +40,7 @@ public class AccountController {
 	public ModelAndView login(@RequestParam("email") String email, @RequestParam("password") String password,
 			ModelAndView mv) {
 		if (email == null || email.length() == 0 || password == null || password.length() == 0) {
-			mv.addObject("message", "情報が未入力です");
+			mv.addObject("message", "アカウント情報を入力してください");
 			mv.setViewName("index");
 			return mv;
 		}
@@ -78,6 +78,7 @@ public class AccountController {
 				|| password.length() == 0 || address == null || address.length() == 0 || tell == null
 				|| tell.length() == 0 || name == null || name.length() == 0) {
 			mv.addObject("message", "未入力の項目があります");
+			mv.addObject("prefecture", getPrefecture());
 			mv.setViewName("signup");
 			return mv;
 		}

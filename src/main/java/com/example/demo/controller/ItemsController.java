@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +29,8 @@ public class ItemsController {
 
 	@RequestMapping(value = "/items")
 	public ModelAndView items(ModelAndView mv) {
-		mv.addObject("items", itemsRepository.findAll());
-		List<Items> itemList = itemsRepository.findAll();
+//		mv.addObject("items", itemsRepository.findAll());
+		List<Items> itemList = itemsRepository.findAll(Sort.by(Direction.ASC, "id"));
 		mv.addObject("items", itemList);
 		mv.setViewName("items");
 		return mv;
@@ -38,7 +40,7 @@ public class ItemsController {
 
 	@RequestMapping("serch")
 	public ModelAndView serch(ModelAndView mv) {
-		mv.addObject("itemList", itemsRepository.findAll());
+		mv.addObject("itemList", itemsRepository.findAll(Sort.by(Direction.ASC, "id")));
 
 		return mv;
 	}
@@ -55,7 +57,7 @@ public class ItemsController {
 	public ModelAndView search(
 			ModelAndView mv,
 			@RequestParam("searchWord") String searchWord) {
-		List<Items> itemList=itemsRepository.findAllByNameContaining(searchWord);
+		List<Items> itemList=itemsRepository.findAllByNameContaining(searchWord, Sort.by(Direction.ASC, "id"));
 		mv.addObject("items",itemList);
 		mv.setViewName("items");
 		return mv;
@@ -68,7 +70,7 @@ public class ItemsController {
 			ModelAndView mv) {      //画像が出力されない
 //		Items item = itemsRepository.findById(id).get();
 //		List<Items> itemList = itemsRepository.findByName("name");
-		
+		//mv.addObject("item", itemsRepository.findAll(Sort.by(Direction.ASC, "id")));
 		mv.addObject("item", itemsRepository.findById(id).get());
 //		List<Items> itemDetail = itemsRepository.findByName("name");
 //		mv.addObject("items", itemDetail);

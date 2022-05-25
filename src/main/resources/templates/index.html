@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
-<span th:text="${message}" style="color:red"></span>
+
 	<h1 style="text-align: center;">ログイン</h1>
-	<form action="/login" method="post" style="text-align: center;">
-	
-		メールアドレス<input type="text" name="email" /> 
-		<br>
-		パスワード<input type="password"name="password" /> 
-		<br>
-		<input type="submit" value="ログイン">
+	<form action="/login" method="post">
+		<span th:text="${message}" style="color: red"></span> <br>
+		メールアドレス<input type="text" name="email" /> <br> パスワード<input
+			type="password" name="password" /> <br> <input type="submit"
+			value="ログイン">
 	</form>
 	<a href="/signup">新規会員登録</a>
 </body>

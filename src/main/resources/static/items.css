@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+body {
+	text-align: center;
+	background-image: url(bg_moon_sky_mikaduki.jpg);
+	background-color: #f0fffa;
+	
+}
+h1 {
+	color: #ffffff;
+}
+form {
+	color: #ffffff;
+}
+input[type="submit"] {
+	box-shadow:inset 0px 0px 23px 0px #276873;
+	background-color:#599bb3;
+	border-radius:28px;
+	border:1px solid #29668f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:13px;
+	font-weight:bold;
+	padding:7px 13px;
+	text-decoration:none;
+	text-shadow:3px 0px 0px #3d768a;
+}
+a {
+  color: #ff0080;
+  text-decoration: none;
+  word-spacing: 10em;
+}
+td {
+width: 100px;
+height: 50px;
+}
+
+
+th {
+padding: 10px;
+font-weight: bold;
+border-top: 1px solid #ccc;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+background: #0099e3;
+color: #ffffff;
+}
+
+td{
+text-align: center;
+padding: 10px 0;
+background-color: #d9e3ee;
+border:solid 1px #afc5dc;
+}
