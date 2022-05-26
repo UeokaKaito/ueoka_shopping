@@ -28,5 +28,14 @@ td{
 a {
 	 color: #ff0000;
 }
-
+footer{
+/*フッターの背景色を指定*/
+background-color: black;
+/*中央揃えにする*/
+text-align: center;
+/*文字色を白にする*/
+color: #FFFFFF;
+/*上下に余白をつけてフッターの太さを調整する*/
+padding: 15px 0;
+}
 

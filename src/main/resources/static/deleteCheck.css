@@ -1,25 +1,35 @@
 @charset "UTF-8";
 
 body {
-	
 	text-align: center;
-	background-image: url(time2_hiru.png);
-	background-size: 100%;
-	background-position : 50% 0%;
+	margin-top: 200px;
+	background-image: url(bg_pattern4_yoru.png);
+	background-size: 150%;
+	background-position : 100% 0%;
 	background-repeat: no-repeat;
-	
-}
-span {
-	text-align: center;
-	font-weight: bold;
 }
 
 h1 {
-	color: gray ;
-	font-size: 500%;
+	animation: flowing-anim 3s forwards linear;
+	color: #ff0000 ;
+	border: solid 2px orange;
+}
+h3 {
+	color: #ffff00 ;
+}
+
+@keyframes flowing-anim {
+ 0%{
+     width: 0%;
+   }
+100%{
+     width: 100%;
+   }
 }
 input[type="submit"] {
-	box-shadow:inset 0px 0px 23px 0px #276873;
+	
+	
+box-shadow:inset 0px 0px 23px 0px #276873;
 	background-color:#599bb3;
 	border-radius:28px;
 	border:1px solid #29668f;
@@ -32,16 +42,4 @@ input[type="submit"] {
 	padding:7px 13px;
 	text-decoration:none;
 	text-shadow:3px 0px 0px #3d768a;
-}
-input[type="password"] {
-	margin-left: 32px;
-}
-
-a {
-	color: rgb(64, 0, 64);	
-	
-}
-
-form {
-	font-size: 100%;
 }

@@ -158,12 +158,21 @@ public class AccountController {
 	@RequestMapping(value="/delete",  method=RequestMethod.POST)
 	public ModelAndView userDelete(ModelAndView mv) {
 		//削除する
+//		Users userInfo = (Users) session.getAttribute("userinfo");
+//		//userInfo.getId();
+//		usersRepository.deleteById(userInfo.getId());
+//		mv.addObject("users", usersRepository.findAll());
+		mv.setViewName("deleteChcek");
+		return mv;
+	}
+	@RequestMapping("deleteYes")
+	public ModelAndView deleteYes(ModelAndView mv) {
 		Users userInfo = (Users) session.getAttribute("userinfo");
 		//userInfo.getId();
 		usersRepository.deleteById(userInfo.getId());
 		mv.addObject("users", usersRepository.findAll());
 		mv.setViewName("index");
-		return mv;
+		return mv; 
 	}
 
 }

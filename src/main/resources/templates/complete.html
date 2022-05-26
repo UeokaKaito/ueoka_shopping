@@ -3,16 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>確認</title>
+<link rel="stylesheet" href="/complete.css">
 </head>
-<body style="text-align: center;">
-<h1 style=" color:red">☑ご来光ありがとうございます！！</h1>
-住所:<span th:text="${session.userinfo.address}"></span>
-<br>
-メールアドレス：<span th:text="${session.userinfo.email}"></span>
-<br>
-<a href="/logout">ログアウト</a>
-<br>
-<a href="/allItem">商品一覧へ戻る</a>
+
+<body>
+	<h1>☑ご来光ありがとうございます！！</h1>
+	<span th:text="お届け先：+ ${session.userinfo.address}"></span>
+	<br>
+	<span th:text="メールアドレス： + ${session.userinfo.email}"></span>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br><br>
+	
+	<br><br>
+	<br><br>
+	<a href="/logout">ログアウト</a>
+	<br>
+	<a href="/allItem">商品一覧へ戻る</a>
 
 
 

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+	background-image: url(syougatsu_hatsuhinode_2022.png);
+	background-size: 50%;
+	background-position : 50% 0%;
+	background-repeat: no-repeat;
+	background-color: #0000ff;
+	margin-top: 50px;
+	text-align: center;
+	
+}
+h1 {
+	color: #000000;
+	
+}
+span {
+	color: #ffffff;
+	
+}
+a {
+	color: #400080;
+}

@@ -3,7 +3,10 @@
 body {
 	
 	text-align: center;
-	background-color: #f0fffa;
+	background-image: url(time2_hiru.png);
+	background-size: 100%;
+	background-position : 50% 0%;
+	background-repeat: no-repeat;
 }
 
 .form_center > table{
@@ -34,4 +37,8 @@ box-shadow:inset 0px 0px 23px 0px #276873;
 }
 div {
 	margin-left: 20;
+}
+
+p {
+	font-weight: bold;
 }

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>情報の変更</title>
+<link rel="stylesheet" href="/edit.css">
 </head>
 <body>
 <form action="/editinfo" method="post"> 
@@ -18,10 +19,13 @@
 			<tr>
 			<th>住所</th>
 			<td>
-			<select name="prefecture">
+			<select name="prefecture" style="width: 180px;">
+	
+			
 				<option th:each="str:${prefecture}" th:value="${str}" th:text="${str}"></option>
 				
 			</select>
+			<br>
 			<input type="text" name="address"></td>
 			</tr>
 			<tr>

@@ -52,3 +52,7 @@ input[type="submit"] {
 	text-decoration:none;
 	text-shadow:3px 0px 0px #3d768a;
 }
+
+a {
+	color: #ffffff;
+}
