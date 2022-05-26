@@ -112,6 +112,15 @@ public class AccountController {
 			@RequestParam("password") String password, @RequestParam("prefecture") String prefecture,
 			@RequestParam("address") String address, @RequestParam("tell") String tell,
 			@RequestParam("name") String name, ModelAndView mv) {
+		if (userName == null || userName.length() == 0 || email == null || email.length() == 0 || password == null
+				|| password.length() == 0 || address == null || address.length() == 0 || tell == null
+				|| tell.length() == 0 || name == null || name.length() == 0) {
+			mv.addObject("message", "未入力の項目があります");
+			mv.addObject("prefecture", getPrefecture());
+			mv.setViewName("edit");
+			return mv;
+		}
+		
 		mv.addObject("prefecture", getPrefecture());
 		
 		// ユーザー情報を取得
@@ -136,6 +145,7 @@ public class AccountController {
 //		mv.setViewName("history");
 //		return mv;
 //	}
+	
 
 	private String[] getPrefecture() {
 		String[] result = { "北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都",
