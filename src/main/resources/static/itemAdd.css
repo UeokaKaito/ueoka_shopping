@@ -38,4 +38,7 @@ color: #FFFFFF;
 /*上下に余白をつけてフッターの太さを調整する*/
 padding: 15px 0;
 }
+p {
+	color: #ff0000;
+}
 

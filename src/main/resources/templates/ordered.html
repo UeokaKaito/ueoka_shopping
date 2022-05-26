@@ -26,9 +26,14 @@
 		</tr>
 
 </table>
-<form action="buy">
-<input type="submit" value="購入">
-</form>	
+
+<form th:if="${total != 0}" action="/buy" method="get">
+		<input type="submit" class="myButton" value="注文する">
+
+	</form>
+
+<p th:if="${total == 0}">カートが空です</p>
+
 <br>
 <br>
 <br>

@@ -38,7 +38,13 @@
 	</table>
 	<a href="/allItem">商品一覧はこちら</a>
 	<br>
-	<a href="/order">購入する</a>
+	<form th:if="${total != 0}" action="/orderItem" method="get">
+		<input type="submit" class="myButton" value="注文する">
+
+	</form>
+
+<p th:if="${total == 0}">カートが空です</p>
+
 	<br>
 	<br>
 	<br>

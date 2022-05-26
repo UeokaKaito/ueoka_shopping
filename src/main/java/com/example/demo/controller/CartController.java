@@ -59,7 +59,7 @@ public class CartController {
 
 		return mv;
 	}
-	@RequestMapping("/order")
+	@RequestMapping("/orderItem")
 	public ModelAndView ordered(ModelAndView mv) {
 		mv.setViewName("ordered");
 		Cart cart = getCart();
