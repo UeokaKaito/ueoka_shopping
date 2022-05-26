@@ -14,13 +14,17 @@
 <tr>
 <th>商品</th>
 <th>小計</th>
+<th></th>
 </tr>
 <tr th:each="item : ${items}">
 <td th:text="${item.value.name}"></td>
 <td th:text="${item.value.price * item.value.quantity}"></td>
-
-<td colspan="5" align="right" th:text="|総計：${total}円|"></td>
 </tr>
+<tr>
+		<td colspan="5" align="right" th:text="|総計：${total}|" style="color: red"></td>
+		<td></td>
+		</tr>
+
 </table>
 <form action="buy">
 <input type="submit" value="購入">

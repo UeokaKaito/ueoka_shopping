@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -124,16 +123,16 @@ public class OrderedController {
 		return mv;
 	}
 
-	@RequestMapping("/history")
-	public ModelAndView history(ModelAndView mv) {
-		Users userinfo = (Users) session.getAttribute("userinfo");
-		Integer id = userinfo.getId();
-		List<Ordered> orderList = orderedRepository.findByUserId(id);
-		mv.addObject("ordered", orderList);
-		mv.setViewName("history");
-
-		return mv;
-	}
+//	@RequestMapping("/history")
+//	public ModelAndView history(ModelAndView mv) {
+//		Users userinfo = (Users) session.getAttribute("userinfo");
+//		Integer id = userinfo.getId();
+//		List<Ordered> orderList = orderedRepository.findByUserId(id);
+//		mv.addObject("ordered", orderList);
+//		mv.setViewName("history");
+//
+//		return mv;
+//	}
 
 //	@RequestMapping("/edit")
 //	public ModelAndView edit(ModelAndView mv) {

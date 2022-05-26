@@ -1,19 +1,13 @@
 @charset "UTF-8";
 
 body {
-	
 	text-align: center;
-	background-color: #f0fffa;
-	
+	background-image: url(time3_yuu.png);
+	background-size: cover;
+	height:400px; 
 }
-span {
-	text-align: center;
-	font-weight: bold;
-}
-
-h1 {
-	color: gray ;
-	font-size: 500%;
+table {
+	margin: 0 auto;
 }
 input[type="submit"] {
 	box-shadow:inset 0px 0px 23px 0px #276873;
@@ -30,15 +24,14 @@ input[type="submit"] {
 	text-decoration:none;
 	text-shadow:3px 0px 0px #3d768a;
 }
-input[type="password"] {
-	margin-left: 32px;
+span {
+	color: #ffff00 ;
+	font-weight: bold;
+}
+th {
+	color: #ffffff ;
 }
 
 a {
-	color: rgb(64, 0, 64);	
-	
-}
-
-form {
-	font-size: 100%;
+	color: #ff0000 ;
 }
