@@ -85,6 +85,17 @@ public class AccountController {
 			mv.addObject("prefecture", getPrefecture());
 			mv.setViewName("signup");
 			return mv;
+		} else {
+			List<Users> userList = usersRepository.findAllByEmail(email);
+			mv.addObject("users", userList);
+			
+			if(userList.size() != 0) {
+				mv.addObject("message", "このメールアドレスは登録済みです");
+				mv.addObject("prefecture", getPrefecture());
+				mv.setViewName("signup");
+				return mv;
+			}
+
 		}
 		Users user = new Users(userName, prefecture + address, email, tell, name, password);
 		usersRepository.saveAndFlush(user);

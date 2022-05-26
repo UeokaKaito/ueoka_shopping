@@ -55,6 +55,9 @@ public class OrderedController {
 //支払情報の入力
 	@RequestMapping(value="/procedure", method=RequestMethod.POST)
 	public ModelAndView procedure(
+			@RequestParam("userName") String userName, 
+			@RequestParam("email") String email,
+			@RequestParam("address") String address,
 			@RequestParam("creditNo") String creditNo,
 			@RequestParam(name="creditSecurity", defaultValue = "0") Integer creditSecurity,
 			ModelAndView mv) {
@@ -63,6 +66,13 @@ public class OrderedController {
 			mv.addObject("message", "支払情報を入力してください");
 			mv.setViewName("info");
 			return mv;
+		} else {
+			if (userName == null || userName.length() == 0 || email == null || email.length() == 0 ||
+					address == null || address.length() == 0) {
+				mv.addObject("message", "未入力の項目があります");
+				mv.setViewName("info");
+				return mv;
+			}
 		}
 		//支払い情報の登録
 		Pay pay = new Pay(creditNo, creditSecurity);

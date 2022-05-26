@@ -27,7 +27,7 @@ h1 {
 
 th {
 	color: #ffffff;
-	font-size: 50px;
+	
 	background-color: #0000ff;
 	width: 100px;
 	height: 50px;
@@ -35,7 +35,7 @@ th {
 
 td {
 	color: #ffffff;
-	font-size: 50px;
+
 }
 input[type="submit"] {
 	box-shadow:inset 0px 0px 23px 0px #276873;
