@@ -21,9 +21,18 @@ table {
 	border-collapse: separate;
   border-spacing: 5px 0;
   margin: 0 auto;
-  margin-top: 100px;
+  
+
 }
 a {
+	color: #ffffff;
+}
+h1 {
 	color: #ff0000;
 }
-
+th {
+	background-color: #f0fffa;
+}
+td {
+	background-color: #f0fffa;
+}
