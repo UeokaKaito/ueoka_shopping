@@ -18,10 +18,10 @@
 </tr>
 <tr th:each="item : ${items}">
 <td th:text="${item.value.name}"></td>
-<td th:text="${item.value.price * item.value.quantity}"></td>
+<td th:text="${item.value.price * item.value.quantity} + 円"></td>
 </tr>
 <tr>
-		<td colspan="5" align="right" th:text="|総計：${total}|" style="color: red"></td>
+		<td colspan="5" align="right" th:text="|総計：${total}円|" style="color: red"></td>
 		<td></td>
 		</tr>
 
