@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -62,7 +63,7 @@ public class OrderedController {
 			@RequestParam(name="creditSecurity", defaultValue = "0") Integer creditSecurity,
 			ModelAndView mv) {
 		//未入力チェック
-		if(creditNo == null || creditNo.length() == 0) {
+		if(creditNo == null || creditNo.length() == 0 || creditSecurity == null || creditSecurity.equals(0)) {
 			mv.addObject("message", "支払情報を入力してください");
 			mv.setViewName("info");
 			return mv;
@@ -94,13 +95,14 @@ public class OrderedController {
 		Users userinfo = (Users) session.getAttribute("userinfo");
 		Integer id = userinfo.getId();
 
-		Ordered ordered = new Ordered(id, new Date(), cart.getTotal());
+		Ordered ordered = new Ordered(userinfo.getId(),  new Date(), cart.getTotal());
 		int order_id = orderedRepository.saveAndFlush(ordered).getId();
 
 		for (Items item : cart.getItems().values()) {
 			OrderDetail orderDetail = new OrderDetail(order_id, item.getId(), item.getQuantity());
 			orderDetailRepository.saveAndFlush(orderDetail);
 		}
+
 		// Ordered ordered = new Ordered(id, userId, orderedDate, cart.getTotal());
 		// orderedRepository.saveAndFlush(ordered);
 		mv.setViewName("complete");
@@ -132,17 +134,30 @@ public class OrderedController {
 		mv.setViewName("myPage");
 		return mv;
 	}
-
-//	@RequestMapping("/history")
-//	public ModelAndView history(ModelAndView mv) {
-//		Users userinfo = (Users) session.getAttribute("userinfo");
-//		Integer id = userinfo.getId();
-//		List<Ordered> orderList = orderedRepository.findByUserId(id);
-//		mv.addObject("ordered", orderList);
-//		mv.setViewName("history");
-//
+	
+	
+//	@RequestMapping("/allaItem")
+//	public ModelAndView allaItem(ModelAndView mv) {
+//		
+//		List<Items> itemList = itemsRepository.findAll(Sort.by(Direction.ASC, "id"));
+//		Cart cart = getCart();
+//		cart.deleteCart(id);
+//		mv.addObject("items", itemList);
+//		
+//		mv.setViewName("items");
 //		return mv;
 //	}
+
+	@RequestMapping("/history")
+	public ModelAndView history(ModelAndView mv) {
+		Users userinfo = (Users) session.getAttribute("userinfo");
+		Integer id = userinfo.getId();
+		List<Ordered> orderList = orderedRepository.findByUserId(id);
+		mv.addObject("ordered", orderList);
+		mv.setViewName("history");
+
+		return mv;
+	}
 
 //	@RequestMapping("/edit")
 //	public ModelAndView edit(ModelAndView mv) {

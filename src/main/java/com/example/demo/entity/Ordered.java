@@ -34,14 +34,23 @@ public class Ordered {
 
 
 
-	public Ordered(Integer id, Date orderedDate, Integer totalPrice) {
+//	public Ordered(Integer id, Date orderedDate, Integer totalPrice) {
+//		super();
+//		this.id = id;
+//		this.orderedDate = orderedDate;
+//		this.totalPrice = totalPrice;
+//	}
+	
+	
+
+	public Ordered(Integer userId, Date orderedDate, Integer totalPrice) {
 		super();
-		this.id = id;
+		this.userId = userId;
 		this.orderedDate = orderedDate;
 		this.totalPrice = totalPrice;
 	}
-	
-	
+
+
 
 	public Integer getId() {
 		return id;

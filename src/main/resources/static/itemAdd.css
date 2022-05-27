@@ -41,4 +41,18 @@ padding: 15px 0;
 p{
 	color: #ffffff;
 }
-
+input[type="submit"] {
+	box-shadow:inset 0px 0px 23px 0px #276873;
+	background-color:#599bb3;
+	border-radius:28px;
+	border:1px solid #29668f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:13px;
+	font-weight:bold;
+	padding:7px 13px;
+	text-decoration:none;
+	text-shadow:3px 0px 0px #3d768a;
+}

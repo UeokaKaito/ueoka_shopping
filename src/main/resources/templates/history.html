@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>注文履歴</title>
+<link rel="stylesheet" href="/history.css">
 </head>
 <body>
+<h1>お客様の購入履歴</h1>
 <table border = "1">
 <tr>
 <th>購入日</th>
@@ -14,7 +16,7 @@
 <tr th:each="order : ${ordered}">
 <!--  <td th:text="${order.orderedDate}">-->
 <td th:text="${#dates.format(order.orderedDate, 'yyyy-MM-dd')}"></td>
-<td th:text="${order.totalPrice}"> 
+<td th:text="${order.totalPrice} + 円"> 
 </tr> 
 </table>
 <a href="/allItem">商品一覧へ戻る</a> 
